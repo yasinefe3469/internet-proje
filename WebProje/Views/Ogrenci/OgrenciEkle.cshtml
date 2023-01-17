@@ -1,0 +1,32 @@
+﻿@model WebProje.Models.Ogrenci
+@{
+    ViewBag.Title = "OgrenciEkle";
+    Layout = "~/Views/Shared/_OgrenciLayout.cshtml";
+}
+
+<h2>Öğrenci Ekle</h2>
+<br />
+
+<form class="form-group" method="post">
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.OgrenciAdiSoyadi)
+        @Html.TextBoxFor(x => x.OgrenciAdiSoyadi, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.OgrenciNo)
+        @Html.TextBoxFor(x => x.OgrenciNo, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.OgrenciDogumTarihi)
+        @Html.TextBoxFor(x => x.OgrenciDogumTarihi, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.OgrenciKayitTarihi)
+        @Html.TextBoxFor(x => x.OgrenciKayitTarihi, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.OgrenciBolumu)
+        @Html.TextBoxFor(x => x.OgrenciBolumu, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-info">Öğrenci Ekle</button>
+</form>

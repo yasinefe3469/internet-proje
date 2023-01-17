@@ -1,0 +1,26 @@
+﻿@model WebProje.Models.Ders
+@{
+    ViewBag.Title = "DersGetir";
+    Layout = "~/Views/Shared/_DersLayout.cshtml";
+}
+
+<h2>Ders Güncelle</h2>
+<br />
+
+@using (Html.BeginForm("DersGuncelle", "Ders", FormMethod.Post))
+            {
+                <div style="margin-bottom:15px">
+                    @Html.HiddenFor(y=>y.DersID)
+                    @Html.LabelFor(x => x.DersAdi)
+                    @Html.TextBoxFor(x=>x.DersAdi, new { @class = "form-control" })
+                </div>
+                <div style="margin-bottom:15px">
+                    @Html.LabelFor(x => x.DersKredisi)
+                    @Html.TextBoxFor(x=>x.DersKredisi, new { @class = "form-control" })
+                </div>
+                <div style="margin-bottom:15px">
+                    @Html.LabelFor(x => x.OkulYonetim.AdSoyad)
+                    @Html.TextBoxFor(x=>x.OkulYonetim.AdSoyad, new { @class = "form-control" })
+                </div>
+                <button class="btn btn-success">Dersi Güncelle</button>
+            }

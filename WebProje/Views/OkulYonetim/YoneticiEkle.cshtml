@@ -1,0 +1,21 @@
+﻿@model WebProje.Models.OkulYonetim
+@{
+    ViewBag.Title = "YoneticiEkle";
+    Layout = "~/Views/Shared/_OkulYonetimLayout.cshtml";
+}
+
+<h2>Yeni Yönetici Ekle</h2>
+<br />
+
+<form class="form-group" method="post">
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.AdSoyad)
+        @Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })
+    </div>
+
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.Gorevi)
+        @Html.TextBoxFor(x => x.Gorevi, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-info">Yöneticiyi Ekle</button>
+</form>

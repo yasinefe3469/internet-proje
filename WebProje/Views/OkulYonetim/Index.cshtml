@@ -1,0 +1,34 @@
+﻿@using WebProje.Models;
+@model List<OkulYonetim> 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_OkulYonetimLayout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "OkulYonetim", FormMethod.Get))
+            {
+                <p>
+                    <b>Aramak istediğiniz Yönetici Adı:</b>@Html.TextBox("p")
+                    <input type="submit" value="ARA"/>
+                </p>
+            }
+<table class="table table-bordered">
+    <tr>
+        <th>Yönetici ID</th>
+        <th>Yönetici Adı Soyadı</th>
+        <th>Yönetici Görevi</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach(var x in Model)
+            {
+                <tr>
+                    <td>@x.OkulYonetimID</td>
+                    <td>@x.AdSoyad</td>
+                    <td>@x.Gorevi</td>
+                    <td><a href="/OkulYonetim/YoneticiSil/@x.OkulYonetimID" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/OkulYonetim/YoneticiGetir/@x.OkulYonetimID" class="btn btn-warning">Güncelle</a></td>
+                </tr>
+            }
+</table>
+<a href="/OkulYonetim/YoneticiEkle/" class="btn btn-primary">Yeni Yönetici Kaydı</a>

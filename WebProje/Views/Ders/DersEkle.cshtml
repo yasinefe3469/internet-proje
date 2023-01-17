@@ -1,0 +1,24 @@
+﻿@model WebProje.Models.Ders
+@{
+    ViewBag.Title = "DersEkle";
+    Layout = "~/Views/Shared/_DersLayout.cshtml";
+}
+
+<h2>Yeni Ders Ekle</h2>
+<br />
+
+<form class="form-group" method="post">
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.DersAdi)
+        @Html.TextBoxFor(x=>x.DersAdi, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.DersKredisi)
+        @Html.TextBoxFor(x=>x.DersKredisi, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.OkulYonetimID)
+        @Html.TextBoxFor(x => x.OkulYonetimID, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-info">Ders Ekle</button>
+</form>

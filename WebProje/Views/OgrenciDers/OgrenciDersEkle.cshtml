@@ -1,0 +1,20 @@
+﻿@model WebProje.Models.OgrenciDers
+@{
+    ViewBag.Title = "OgrenciDersEkle";
+    Layout = "~/Views/Shared/_OgrenciDersLayout.cshtml";
+}
+
+<h2>Yeni Öğrenci Dersi Ekle</h2>
+<br />
+
+<form class="form-group" method="post">
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.DersID)
+        @Html.TextBoxFor(x => x.DersID, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.OgrenciID)
+        @Html.TextBoxFor(x => x.OgrenciID, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-info">Yeni Öğrenci Ders</button>
+</form>

@@ -1,0 +1,22 @@
+﻿@model WebProje.Models.OkulYonetim
+@{
+    ViewBag.Title = "YoneticiGetir";
+    Layout = "~/Views/Shared/_OkulYonetimLayout.cshtml";
+}
+
+<h2>Yönetici Güncelle</h2>
+
+@using (Html.BeginForm("YoneticiGuncelle", "OkulYonetim", FormMethod.Post))
+{
+    <div style="margin-bottom:15px">
+        @Html.HiddenFor(y=>y.OkulYonetimID)
+        @Html.LabelFor(x => x.AdSoyad)
+        @Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })
+    </div>
+
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.Gorevi)
+        @Html.TextBoxFor(x => x.Gorevi, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-success">Yöneticiyi Güncelle</button>
+}

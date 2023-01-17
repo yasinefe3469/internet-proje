@@ -1,0 +1,37 @@
+﻿@using WebProje.Models;
+@model List<Ders> 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DersLayout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Ders", FormMethod.Get))
+            {
+                <p>
+                    <b>Aramak istediğiniz Ders Adı:</b>@Html.TextBox("p")
+                    <input type="submit" value="ARA"/>
+                </p>
+            }
+
+<table class="table table-bordered">
+    <tr>
+        <th>Ders ID</th>
+        <th>Dersin Adı</th>
+        <th>Dersin Kredisi</th>
+        <th>Dersin Yöneticisi</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach(var x in Model)
+            {
+                <tr>
+                    <td>@x.DersID</td>
+                    <td>@x.DersAdi</td>
+                    <td>@x.DersKredisi</td>
+                    <td>@x.OkulYonetim.AdSoyad</td>
+                    <td><a href="/Ders/DersSil/@x.DersID" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Ders/DersGetir/@x.DersID" class="btn btn-warning">Güncelle</a></td>
+                </tr>
+            }
+</table>
+<a href="/Ders/DersEkle/" class="btn btn-primary">Yeni Ders Ekle</a>

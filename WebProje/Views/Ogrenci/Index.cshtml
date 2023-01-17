@@ -1,0 +1,40 @@
+﻿@using WebProje.Models;
+@model List<Ogrenci>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_OgrenciLayout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Ogrenci", FormMethod.Get))
+            {
+                <p>
+                    <b>Aramak istediğiniz Öğrenci Adı:</b> @Html.TextBox("p")
+                    <input type="submit" value="ARA"/>
+                </p>
+            }
+<table class="table table-bordered">
+    <tr>
+        <th>Öğrenci ID</th>
+        <th>Öğrenci Adı Soyadı</th>
+        <th>Öğrenci No</th>
+        <th>Öğrenci Doğum Tarihi</th>
+        <th>Öğrenci Kayıt Tarihi</th>
+        <th>Öğrenci Bölümü</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach(var x in Model)
+            {
+                <tr>
+                    <td>@x.OgrenciID</td>
+                    <td>@x.OgrenciAdiSoyadi</td>
+                    <td>@x.OgrenciNo</td>
+                    <td>@x.OgrenciDogumTarihi</td>
+                    <td>@x.OgrenciKayitTarihi</td>
+                    <td>@x.OgrenciBolumu</td>
+                    <td><a href="/Ogrenci/OgrenciSil/@x.OgrenciID" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Ogrenci/OgrenciGetir/@x.OgrenciID" class="btn btn-warning">Güncelle</a></td>
+                </tr>
+            }
+</table>
+<a href="/Ogrenci/OgrenciEkle/" class="btn btn-primary">Yeni Öğrenci Kaydı</a>

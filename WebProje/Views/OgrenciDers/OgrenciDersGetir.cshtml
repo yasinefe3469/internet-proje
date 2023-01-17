@@ -1,0 +1,22 @@
+﻿@model WebProje.Models.OgrenciDers
+@{
+    ViewBag.Title = "OgrenciDersGetir";
+    Layout = "~/Views/Shared/_OgrenciDersLayout.cshtml";
+}
+
+<h2>Öğrencinin Dersini Güncelle</h2>
+<br />
+
+@using(Html.BeginForm("OgrenciDersiGuncelle", "OgrenciDers", FormMethod.Post))
+            {
+                <div style="margin-bottom:15px">
+                    @Html.HiddenFor(y => y.ID)
+                    @Html.LabelFor(x => x.Ders.DersAdi)
+                    @Html.TextBoxFor(x => x.Ders.DersAdi, new { @class = "form-control" })
+                </div>
+                <div style="margin-bottom:15px">
+                    @Html.LabelFor(x => x.Ogrenci.OgrenciAdiSoyadi)
+                    @Html.TextBoxFor(x => x.Ogrenci.OgrenciAdiSoyadi, new { @class = "form-control" })
+                </div>
+                <button class="btn btn-success">Öğrenci Dersi Güncelle</button>
+            }
